@@ -29,8 +29,8 @@
 
     <section class="form">
         <div class="form-body">
-
-                    <form action="includes/addHospital.inc.php" method="POST" onsubmit="return docRegValidation();" class="form-area">
+<!-- onsubmit="return docRegValidation();" -->
+                    <form action="includes/addHospital.inc.php" method="POST"  class="form-area">
                             <div class="form-header">
                                     <h3 class="mb-5">Add Hospital</h3>
                                 </div>
@@ -44,18 +44,18 @@
                                     }
                                 }
                                 else if(isset($_GET['doctor'])){
-                                    if($_GET['doctor']=='addedsuccessfully'){
+                                    // if($_GET['doctor']=='addedsuccessfully'){
                                         echo'<div class="loginErrorMsg">
                                         <p id="errorMsg">Hospital added successfully.</p>
                                         </div>';
-                                    }
+                                    
                                 }
 
 
                                 ?>
                         <input
                         type="text"
-                        id="fullName"
+                        id="hospitalName"
                         name="hospitalName"
                         placeholder="Enter Hospital Name">
                         <label id="fullName__label1"></label>
@@ -66,7 +66,7 @@
                         <label id=""></label>
                         <input type="text" id="hospitalEmail" name="hospitalEmail" placeholder="Enter Hospital E-mail">
                         <label id="docDegree_label1"></label>
-                        <input type="text" id="phone" name="" placeholder="Enter Hospital Phone Number">
+                        <input type="text" id="phone" name="hospitalPhone" placeholder="Enter Hospital Phone Number">
                         <label id="docTime1_label1"></label>
 
 
