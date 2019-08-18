@@ -1,10 +1,10 @@
 <?php
-require 'includes/dbh.inc.php';
+require 'dbh.inc.php';
 
+$search = mysqli_real_escape_string($conn,$_POST['search']);
 
-$sql = "SELECT * FROM doctors";
+$sql = "SELECT * FROM ambulance WHERE amb_city='$search'";
 $result = mysqli_query($conn,$sql);
-
 
 
 ?>
@@ -46,18 +46,16 @@ $result = mysqli_query($conn,$sql);
 
                        <div class="col-md-6">
                             <div class="doc__photo">
-                                    <a href="doctorDetails.php?page=doctorDetails&ID=<?php echo $row['doc_ID'] ?>"><img src="img/author.jpg" alt="<?php echo $row['doc_Fullname'] ?>"></a>
+                                    <a href="doctorDetails.php?page=doctorDetails&ID=<?php echo $row['amb_id'] ?>"><img src="../img/author.jpg" alt="<?php echo $row['amb_name'] ?>"></a>
                                 </div>
 
                        </div>
                        <div class="col-md-6 mt-5">
                             <div class="doc__info">
-                                    <h3><?php echo $row['doc_Fullname'] ?></h3>
-                                    <h4><strong>Specialty:</strong> Consultant, <?php echo $row['doc_Specialization1'] ?> <?php echo $row['doc_Specialization2'] ?></h4>
-                                    <!-- <p class="docDegree"><strong>Degree:</strong> <?php echo $row['doc_Degree'] ?></p> -->
-                                    <p class="docTime"><strong>Time:</strong> <?php echo $row['doc_Time1'] ?>  <?php echo $row['doc_Time2'] ?> </p>
-                                    <a href="appointment.php?page=doctorAppointment&ID=<?php echo $row['doc_ID']?>"  class="btn btn-info">Make Appointment</a>
-                                    <a href="doctorDetails.php?page=doctorDetails&ID=<?php echo $row['doc_ID'] ?>" class="float-right btn btn-dark">View Details</a>
+                                    <h3><?php echo $row['amb_name'] ?></h3>
+                                    <h4><strong>City:</strong><?php echo $row['amb_city'] ?> </h4>
+                                    <p class="docTime"><strong>Phone : </strong> <?php echo $row['amb_phone'] ?> </p>
+
                                 </div>
                        </div>
                    </div>
